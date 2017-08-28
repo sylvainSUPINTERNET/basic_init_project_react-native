@@ -1,0 +1,3 @@
+rootProject.name = 'pfe_phone'
+
+include ':app'
