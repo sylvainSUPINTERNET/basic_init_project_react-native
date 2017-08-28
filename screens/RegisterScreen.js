@@ -8,20 +8,18 @@ import {
     Text,
     TextInput,
     View,
+    Button,
+    Alert
 } from 'react-native';
 
 import NavBar from 'react-native-navbar';
 
 
-
-
-
-export default class LoginScreen extends Component {
+export default class RegisterScreen extends Component {
     constructor(props) {
         super(props);
 
         this.state = {nickname: ""};
-
 
 
         //Getters
@@ -36,11 +34,20 @@ export default class LoginScreen extends Component {
 
         //Setters
 
+
+        //other
+
+        this.submitForm = () => {
+            Alert.alert(`HELLO ${this.getNickname()}`);
+        }
+
+
+
     };
 
     static navigationOptions = {
-        drawerLabel: 'Login',
-        title: 'Connecté vous !',
+        drawerLabel: 'Register',
+        title: 'Inscrivez - vous !',
 
     };
 
@@ -48,7 +55,7 @@ export default class LoginScreen extends Component {
     render() {
 
         const screenConfigNavbar = {
-            title: 'Login',
+            title: 'Register',
         };
 
         const screenConfigNavbarButtonLeft = {
@@ -56,17 +63,21 @@ export default class LoginScreen extends Component {
             handler: () => this.props.navigation.navigate('HomeScreen'),
         };
 
+
         return (
             <View>
-                <NavBar title={screenConfigNavbar} leftButton={screenConfigNavbarButtonLeft} />
+                <NavBar title={screenConfigNavbar} leftButton={screenConfigNavbarButtonLeft}/>
                 <TextInput
                     style={{height: 40, borderColor: 'gray', borderWidth: 1}}
                     onChangeText={(nickname) => this.setState({nickname})}
                     value={this.state.nickname}
+                    returnKeyLabel = {"nickname"}
+
                 />
                 <Text>
                     Votre pseudo : {this.getNickname()}
                 </Text>
+                <Button title="registration" onPress={() => this.submitForm()}/>
             </View>
         );
     };

@@ -12,7 +12,7 @@ import {
 } from 'react-navigation'
 
 
-import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
 
 
@@ -37,8 +37,8 @@ const pfeAppMenu = DrawerNavigator({
     HomeScreen: {
         screen: HomeScreen
     },
-    LoginScreen: {
-        screen: LoginScreen,
+    RegisterScreen: {
+        screen: RegisterScreen,
     },
 
 });
